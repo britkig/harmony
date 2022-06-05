@@ -1,4 +1,4 @@
-<?php	//	Harmony Framework, CLI Components
+<?php	//	Harmony Framework, CLI Components Loader
 
 //	Load common modules
 foreach(glob(implode(DIRECTORY_SEPARATOR,[dirname(__DIR__),'system.php'])) as $_)
