@@ -1,5 +1,5 @@
 # Harmony Framework
-**A common-component PHP framework**
+**A common-component PHP abstraction framework**
 
 ## Framework Fundamentals
 The Framework is formed of two classes of components:
