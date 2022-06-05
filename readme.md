@@ -13,8 +13,8 @@ To main consistency, functions:
 ## Example function
 Function:
 ```php
-<?php
-namespace math;
+<?php namespace math;
+
 function add(int &$result, int $num1, int $num2):bool{
   $result = $num1 + $num2;
   return true;
@@ -23,11 +23,13 @@ function add(int &$result, int $num1, int $num2):bool{
 Example Usage:
 ```php
 <?php
+
 $num1 = 2;
 $num2 = 4;
 if(\math\add($result, int $num1, int $num2)){
-  echo "$num1 plus $num2 is $result".;
+  echo "$num1 plus $num2 is $result.";
 }else{
   echo "I could not calulate $num1 plus $num2!";
 }
 ```
+Result: `2 plus 4 is 6.`
