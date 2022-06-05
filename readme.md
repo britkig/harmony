@@ -2,10 +2,9 @@
 **A common-component PHP framework**
 
 ## Framework Fundamentals
-The Framework is formed of three sub-systems:
+The Framework is formed of two classes of components:
 - **Common** for components that work in any environment
-- **CLI** for components that can only be used in CLI (command-line interface) scripts
-- **Web** for components that only practical within web server applications
+- Environment-specific (e.g. **CLI/Web**) for components that can only work properly in specific environments
 
 To main consistency, functions:
 - Always use `bool` as the return type to indicate successful execution (handy for use directly within `if` condition blocks)
