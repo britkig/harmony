@@ -1,3 +1,7 @@
-# Common Components directory
+# Components Library Directory
 
-This directory contains components that work in almost any environment.
+This directory contains all installed components.
+
+# Environment-specific components sub-directories
+
+Sub-directories can exist in here for enabling modules to only be available in certain settings, such as CLI-only scripts, web applications etc.
