@@ -31,8 +31,7 @@ function ResponseEmbedQuick(null|string$a=null,null|string$b=null,null|int$c=nul
 
 function ResponseAutoComplete(array$a):void{
 	$b=[];
-	foreach(\array_keys($a)as$c)
-		\array_push($b,['name'=>$c,'value'=>$a[$c]]);
+	foreach(\array_keys($a) as $c) \array_push($b,['name'=>$c,'value'=>$a[$c]]);
 	Response(['type'=>8,'choices'=>$b]);
 }
 
