@@ -15,11 +15,11 @@ function ResponseString(string $_, bool $p=false):void{
 	ResponseMessage(['content'=>$_],$p);
 }
 
-function ResponseEmbed(\Discord\Embed &$_, bool$p=false):void{
+function ResponseEmbed(\Discord\Embed &$_, bool $p=false):void{
 	ResponseMessage(['embeds'=>[$_::Build($_)]],$p);
 }
 
-function ResponseEmbedQuick(null|string$a=null,null|string$b=null,null|int$c=null,bool$d=false):void{
+function ResponseEmbedQuick(null|string $a=null, null|string $b=null, null|int $c=null, bool $d=false):void{
 	\Discord\Embed::Create($_);
 	$_::Color($_,$c);
 	$_::Title($_,$b);
