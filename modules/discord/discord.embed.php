@@ -13,7 +13,7 @@ final class Embed{
 	private $timestamp=null;
 
 	private $color=null;
-	static function color(self &$_,null|int$a=null):void{
+	static function color(self &$_, null|int $a=null):void{
 		$_->color=$a;
 	}
 
@@ -23,7 +23,7 @@ final class Embed{
 	}
 
 	private $description=null;
-	static function Description(self &$_,null|string $a=null):void{
+	static function Description(self &$_, null|string $a=null):void{
 		$_->description=$a;
 	}
 
@@ -39,12 +39,12 @@ final class Embed{
 	}
 
 	private $image=null;
-	static function Image(self &$_,null|string $a=null):void{
+	static function Image(self &$_, null|string $a=null):void{
 		$_->image=($a?['url'=>$a]:null);
 	}
 
 	private $thumbnail=null;
-	static function Thumbnail(self &$_,null|string $a=null):void{
+	static function Thumbnail(self &$_, null|string $a=null):void{
 		$_->thumbnail=($a?['url'=>$a]:null);
 	}
 
@@ -53,15 +53,15 @@ final class Embed{
 		$_->author=($a?['url'=>$a]:null);
 	}
 
-	static function Build(self $_):array{
-		$_=\get_object_vars($_);
-		foreach(\array_keys($_)as$a)
-      if(is_null($_[$a]))
-        unset($_[$a]);
-	return $_;}
+	static function Build(self &$_):array{
+		$a=\get_object_vars($_);
+		foreach(\array_keys($a) as $b)
+			if(\is_null($a[$b]))
+       			unset($a[$b]);
+	return $a;}
 
 	static function Create(&$_, null|bool $t=true):void{
 		$_=new self();
-		if($t)$_->timestamp=\date(DATE_ISO8601);
+		if($t)$_->timestamp=\date(\DATE_ISO8601);
 	}
 }
