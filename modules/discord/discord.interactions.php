@@ -35,3 +35,7 @@ function ResponseAutoComplete(array$a):void{
 		\array_push($b,['name'=>$c,'value'=>$a[$c]]);
 	Response(['type'=>8,'choices'=>$b]);
 }
+
+function Handler(){
+	
+}
