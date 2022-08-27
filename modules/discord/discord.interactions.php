@@ -5,7 +5,7 @@ const DIR=__DIR__;
 //  Discord Interactions event handler and output conversion macros
 
 function Response(array$a){
-	\JSON\HTTPEncode($a,true);
+	\JSON\HTTPEncode($a);
 }
 
 function ResponseMessage(array $b,bool&$c=false):void{
