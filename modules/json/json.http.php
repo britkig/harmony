@@ -1,7 +1,7 @@
 <?php namespace JSON;
-  const MIME='application/json';
+  const HTTP_MIME='application/json';
 
 function EncodeHTTP(array &$a):bool{
   if(!Encode($b,$a)) return false;
-  if(!\HTTP\Response($b,MIME)) return false;
+  if(!\HTTP\Response($b,HTTP_MIME)) return false;
 return true;}
