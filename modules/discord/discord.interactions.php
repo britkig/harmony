@@ -1,5 +1,6 @@
 <?php namespace Discord\Interactions;
 
+const DIR=__DIR__;
 //  Discord Interactions event handler and output conversion
 
 function Response(array$a){
