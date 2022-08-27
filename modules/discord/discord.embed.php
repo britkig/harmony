@@ -4,7 +4,7 @@
 
 final class Embed{
 	
-	const COLOR_DEFAULT=null;
+	const COLOR_DEFAULT=0x0;
 	const COLOR_RED=0xff3333;
 	const COLOR_YELLOW=0xaaaa55;
 	const COLOR_GREEN=0x55aa55;
@@ -12,8 +12,9 @@ final class Embed{
 
 	private $timestamp=null;
 
-	private $color=null;
-	static function color(self &$_, null|int $a=null):void{
+	private $color=self::COLOR_DEFAULT;
+	static function color(self &$_, int $a=self::COLOR_DEFAULT):void{
+		if($a<0) \trigger_error('Embed color cannot be negative.');
 		$_->color=$a;
 	}
 
@@ -34,8 +35,7 @@ final class Embed{
 			return;
 		}
 		$_->footer=['text'=>$t];	
-		if($i)
-    		$_->footer['icon_url']=$i;
+		if($i) $_->footer['icon_url']=$i;
 	}
 
 	private $image=null;
@@ -56,8 +56,7 @@ final class Embed{
 	static function Build(self &$_):array{
 		$a=\get_object_vars($_);
 		foreach(\array_keys($a) as $b)
-			if(\is_null($a[$b]))
-       			unset($a[$b]);
+			if(\is_null($a[$b])) unset($a[$b]);
 	return $a;}
 
 	static function Create(&$_, null|bool $t=true):void{
