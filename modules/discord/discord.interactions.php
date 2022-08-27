@@ -8,7 +8,7 @@ function Response(array$a){
 
 function ResponseMessage(array $b,bool&$c=false):void{
 	if(!$c)
-    $b['flags']=1<<6;
+		$b['flags']=1<<6;
 	$b=['type'=>4,'data'=>$b];
 	Response($b);
 }
@@ -18,9 +18,7 @@ function ResponseString(string $_, bool $p=false):void{
 }
 
 function ResponseEmbed(\Discord\Embed &$_, bool$p=false):void{
-	$a=$_::Build($_);
-	$a=['embeds'=>[$a]];
-	ResponseMessage($a,$p);
+	ResponseMessage(['embeds'=>[$_::Build($_)]],$p);
 }
 
 function ResponseEmbedQuick(null|string$a=null,null|string$b=null,null|int$c=null,bool$d=false):void{
@@ -35,6 +33,5 @@ function ResponseAutoComplete(array$a):void{
 	$b=[];
 	foreach(\array_keys($a)as$c)
 		\array_push($b,['name'=>$c,'value'=>$a[$c]]);
-	$a=['type'=>8,'choices'=>$b];
-	Response($a);
+	Response(['type'=>8,'choices'=>$b]);
 }
