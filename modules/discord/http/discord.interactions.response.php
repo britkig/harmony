@@ -1,4 +1,5 @@
 <?php namespace Discord\Interactions;
+//requires:discord.interactions.php
 
 function Response(array$a){
 	\JSON\HTTPEncode($a);
