@@ -1,6 +1,6 @@
 <?php namespace Discord\Interactions;
 
-const DIR=__DIR__;
+const DIR=__FILE__;
 
 //  Discord Interactions event handler and output conversion macros
 
