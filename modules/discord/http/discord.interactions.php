@@ -31,7 +31,3 @@ function ResponseAutoComplete(array &$a):void{
 	foreach(\array_keys($a) as $c) \array_push($b,['name'=>$c,'value'=>$a[$c]]);
 	Response(['type'=>8,'choices'=>$b]);
 }
-
-function Handler(){
-	
-}
