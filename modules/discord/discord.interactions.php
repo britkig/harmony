@@ -9,8 +9,7 @@ function Response(array$a){
 }
 
 function ResponseMessage(array $b,bool&$c=false):void{
-	if(!$c)
-		$b['flags']=1<<6;
+	if(!$c) $b['flags']=1<<6;
 	$b=['type'=>4,'data'=>$b];
 	Response($b);
 }
