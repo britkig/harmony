@@ -1,9 +1,5 @@
 <?php namespace Discord\Interactions;
 
-const DIR=__FILE__;
-
-//  Discord Interactions event handler and output conversion macros
-
 function Response(array$a){
 	\JSON\HTTPEncode($a);
 }
