@@ -11,12 +11,12 @@ function CodeBlock(string $a, string $b=null):string{
 	return \sprintf(CodeBlock,$b,$a);
 }
 
-const MentionChannel='`<#%s>`';
+const MentionChannel='<#%s>';
 function MentionChannel(int $a):string{
 	return \sprintf(MentionChannel,$a);
 }
 
-const MentionUser='`<@%s>`';
+const MentionUser='<@%s>';
 function MentionUser(int $a):string{
 	return \sprintf(MentionUser,$a);
 }
