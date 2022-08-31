@@ -1,66 +1,79 @@
-<?php namespace Discord;
+<?php namespace Discord;final class Embed{
 
-//  Discord Embed object type
-
-final class Embed{
-	
-	const COLOR_DEFAULT=0x0;
+	const COLOR_NONE=0x0;
 	const COLOR_RED=0xff3333;
 	const COLOR_YELLOW=0xaaaa55;
 	const COLOR_GREEN=0x55aa55;
 	const COLOR_BLUE=0x5555ff;
 
-	private $timestamp=null;
-
+	const COLOR_DEFAULT=self::COLOR_NONE;
+	
 	private $color=self::COLOR_DEFAULT;
-	static function color(self &$_, int $a=self::COLOR_DEFAULT):void{
+	function Color(int $a=COLOR_DEFAULT):void{
 		if($a<0) \trigger_error('Embed color cannot be negative.');
-		$_->color=$a;
+		$this->color=$a;
 	}
 
 	private $title=null;
-	static function title(self &$_, null|string $a=null):void{
-		$_->title=$a;
+	function Title(string $a=null):void{
+		$this->title=$a;
 	}
 
 	private $description=null;
-	static function Description(self &$_, null|string $a=null):void{
-		$_->description=$a;
-	}
-
-	private $footer=null;
-	static function Footer(self &$_, null|string $t=null, null|string $i=null):void{
-		if(!$t){
-			$_->footer=null;
-			return;
-		}
-		$_->footer=['text'=>$t];	
-		if($i) $_->footer['icon_url']=$i;
-	}
-
-	private $image=null;
-	static function Image(self &$_, null|string $a=null):void{
-		$_->image=($a?['url'=>$a]:null);
+	function Description(string $a=null):void{
+		$this->description=$a;
 	}
 
 	private $thumbnail=null;
-	static function Thumbnail(self &$_, null|string $a=null):void{
-		$_->thumbnail=($a?['url'=>$a]:null);
+	function Thumbnail(string $a=null):void{
+		$this->thumbnail=($a?['url'=>$a]:null);
+	}
+
+	private $fields=null;
+	function Fields(array$a=null):void{
+		if(!$a){
+			$fields=null;
+			return;
+		}
+		$b=[];
+		foreach(\array_keys($a) as $c){
+			if(!\is_scalar($c)||!\is_scalar($a[$c])) \trigger_error('Array contains one or more non-scalar keys or values.',\E_USER_ERROR);
+			\array_push($b,['name'=>(string)$c,'value'=>(string)$a[$c]]);
+		}
+		$this->fields=$b;
+	}
+
+	private $image=null;
+	function Image(string $a=null):void{
+		$this->image=($a?['url'=>$a]:null);
+	}
+
+	private $footer=null;
+	function Footer(null|string $t=null, string $i=null):void{
+		if(!$t){
+			$this->footer=null;
+			return;
+		}
+		$this->footer=['text'=>$t];	
+		if($i) $this->footer['icon_url']=$i;
 	}
 
 	private $author=null;
-	static function Author(self &$_, null|string $a=null):void{
-		$_->author=($a?['url'=>$a]:null);
+	function Author(string $a=null):void{
+		$this->author=($a?['url'=>$a]:null);
 	}
+	
+	private $timestamp=null;
 
-	static function Build(self &$_):array{
-		$a=\get_object_vars($_);
-		foreach(\array_keys($a) as $b)
-			if(\is_null($a[$b])) unset($a[$b]);
+	function Build():array{
+		$a=\get_object_vars($this);
+		foreach(\array_keys($a) as $b) if(\is_null($a[$b])) unset($a[$b]);
 	return $a;}
-
-	static function Create(&$_, null|bool $t=true):void{
-		$_=new self();
-		if($t)$_->timestamp=\date(\DATE_ISO8601);
+	
+	function __construct(bool $a=true){
+		if($a)$this->timestamp=\date(\DATE_ATOM);
+	}static function Create(&$_, bool $a=true):void{
+		$_=new self($a);
 	}
+
 }
