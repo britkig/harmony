@@ -1,23 +1,23 @@
 <?php namespace Discord\Markup;
 
 const Code='`%s`';
-function Code(string$a,string$b=null):string{
+function Code(string $a, string $b=null):string{
 	return \sprintf(Code,$a,$b);
 }
 
 const CodeBlock='```%s
 %s```';
-function CodeBlock(string$a,string$b=null):string{
+function CodeBlock(string $a, string $b=null):string{
 	return \sprintf(CodeBlock,$b,$a);
 }
 
 const MentionChannel='`<#%s>`';
-function MentionChannel(int$a):string{
+function MentionChannel(int $a):string{
 	return \sprintf(MentionChannel,$a);
 }
 
 const MentionUser='`<@%s>`';
-function MentionUser(int$a):string{
+function MentionUser(int $a):string{
 	return \sprintf(MentionUser,$a);
 }
 
