@@ -10,7 +10,7 @@
 	
 	private $color=self::COLOR_DEFAULT;
 	function Color(int $a=COLOR_DEFAULT):void{
-		if($a<0) \trigger_error('Embed color cannot be negative.');
+		if($a<0) \trigger_error('Embed color cannot be negative.',\E_USER_ERROR);
 		$this->color=$a;
 	}
 
