@@ -14,6 +14,11 @@
 		$this->color=$a;
 	}
 
+	private $author=null;
+	function Author(string $a=null):void{
+		$this->author=($a?['url'=>$a]:null);
+	}
+
 	private $title=null;
 	function Title(string $a=null):void{
 		$this->title=$a;
@@ -58,11 +63,6 @@
 		if($i) $this->footer['icon_url']=$i;
 	}
 
-	private $author=null;
-	function Author(string $a=null):void{
-		$this->author=($a?['url'=>$a]:null);
-	}
-	
 	private $timestamp=null;
 
 	function Build():array{
