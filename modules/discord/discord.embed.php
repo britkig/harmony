@@ -1,6 +1,4 @@
-<?php namespace Discord;
-
-final class Embed{
+<?php namespace Discord;final class Embed{
 
 	const COLOR_NONE=0x0;
 	const COLOR_RED=0xff3333;
