@@ -42,7 +42,7 @@
 		}
 		$b=[];
 		foreach(\array_keys($a) as $c){
-			if(!\is_scalar($c)||!\is_scalar($a[$c])) \trigger_error('Array contains one or more non-scalar keys or values.',\E_USER_ERROR);
+			if(!\is_string($c)||!\is_string($a[$c])) \trigger_error('Array contains one or more non-string keys or values.',\E_USER_ERROR);
 			\array_push($b,['name'=>(string)$c,'value'=>(string)$a[$c]]);
 		}
 		$this->fields=$b;
