@@ -71,7 +71,7 @@
 	return $a;}
 	
 	function __construct(bool $a=true){
-		if($a)$this->timestamp=\date(\DATE_ATOM);
+		if($a)$this->timestamp=\date(\DATE_ISO8601);
 	}static function Create(&$_, bool $a=true):void{
 		$_=new self($a);
 	}
