@@ -1,7 +1,5 @@
 <?php namespace Discord;
 
-//  Discord Rich Embed object type
-
 final class Embed{
 
 	const COLOR_NONE=0x0;
