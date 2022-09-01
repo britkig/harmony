@@ -1,4 +1,8 @@
-<?php namespace Discord;final class Embed{
+<?php namespace Discord;
+
+//  Discord Rich Embed object type
+
+final class Embed{
 
 	const COLOR_NONE=0x0;
 	const COLOR_RED=0xff3333;
@@ -7,35 +11,30 @@
 	const COLOR_BLUE=0x5555ff;
 
 	const COLOR_DEFAULT=self::COLOR_NONE;
-	
+
 	private $color=self::COLOR_DEFAULT;
-	function Color(int $a=COLOR_DEFAULT):void{
-		if($a<0) \trigger_error('Embed color cannot be negative.',\E_USER_ERROR);
+	function Color(null|int $a=COLOR_DEFAULT):void{
+		if($a<0) \trigger_error('Embed color cannot be negative.');
 		$this->color=$a;
 	}
 
-	private $author=null;
-	function Author(string $a=null):void{
-		$this->author=($a?['url'=>$a]:null);
-	}
-
 	private $title=null;
-	function Title(string $a=null):void{
+	function Title(null|string $a=null):void{
 		$this->title=$a;
 	}
 
 	private $description=null;
-	function Description(string $a=null):void{
+	function Description(null|string $a=null):void{
 		$this->description=$a;
 	}
 
 	private $thumbnail=null;
-	function Thumbnail(string $a=null):void{
+	function Thumbnail(null|string $a=null):void{
 		$this->thumbnail=($a?['url'=>$a]:null);
 	}
 
 	private $fields=null;
-	function Fields(array$a=null):void{
+	function Fields(null|array $a=null):void{
 		if(!$a){
 			$fields=null;
 			return;
@@ -49,20 +48,30 @@
 	}
 
 	private $image=null;
-	function Image(string $a=null):void{
+	function Image(null|string $a=null):void{
 		$this->image=($a?['url'=>$a]:null);
 	}
 
 	private $footer=null;
-	function Footer(null|string $t=null, string $i=null):void{
-		if(!$t){
+	function Footer(null|string $a=null, null|string $b=null):void{
+		if(!$a){
 			$this->footer=null;
 			return;
 		}
-		$this->footer=['text'=>$t];	
-		if($i) $this->footer['icon_url']=$i;
+		$this->footer=['text'=>$a];	
+		if($b) $this->footer['icon_url']=$b;
 	}
 
+	private $author=null;
+	function Author(null|string $a=null, null|string $b=null):void{
+		if(!$a){
+			$this->author=null;
+			return;
+		}
+		$this->author=['name'=>$a];	
+		if($b) $this->author['url']=$b;
+	}
+	
 	private $timestamp=null;
 
 	function Build():array{
@@ -71,7 +80,7 @@
 	return $a;}
 	
 	function __construct(bool $a=true){
-		if($a)$this->timestamp=\date(\DATE_ISO8601);
+		if($a)$this->timestamp=\date(\DATE_ATOM);
 	}static function Create(&$_, bool $a=true):void{
 		$_=new self($a);
 	}
