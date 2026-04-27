@@ -1,3 +1,3 @@
 <?php namespace String;
-function Is($_){
+function Is($_):bool{
 	return \is_string($_);}
