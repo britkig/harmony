@@ -4,13 +4,13 @@ abstract class Base{
 		return (bool)$r->getProperty($p)->getAttributes($a::class);
 	}
 	final function MapV(array $m, ?array $d):void{
-		if($d)
-			if($m){
-				foreach($d as $a=>$b){
+		if($m)
+			if($d){
+				foreach($m as $a=>$b){
 					
 				}
 			}else{
-				foreach($d as $a=>$b)
+				foreach($m as $a=>$b)
 					if(\is_string($a))
 						if(\property_exists($this,$a))
 							$this->$a=$b;
