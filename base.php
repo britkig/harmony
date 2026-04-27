@@ -4,7 +4,7 @@ abstract class Base{
 	final function HasAttribute(string $p, string $a):bool{
 		return (bool)$this->_meta->getProperty($p)->getAttributes($a::class);
 	}
-	final function Map(array $d, array $m=[]){
+	final function MapV(array $m, array $d):void{
 		if($d)
 			if($m){
 				foreach($d as $a=>$b){
@@ -17,12 +17,15 @@ abstract class Base{
 							$this->$a=$b;
 			}
 	}
+	final Function Map(array $m, ... $d):void{
+		MapV($m, $d);
+	}
 	#[\Override]
 	protected function Initialise():void{}
 	final function __construct(?array $d=[],?array $m=[]){
 		$this->$_meta=\ReflectionObject($this);
 		$this->initialize();
 		if($data)
-			$this->Map($d, $m);
+			$this->MapV($d, $m);
 	}
 }
