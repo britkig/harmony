@@ -1,3 +1,3 @@
 <?php namespace String;
-function Concat(array$s):string{
-	return Join(null,$s);}
+function ConcatV(array$s):string{
+	return JoinV(null,$s);}
