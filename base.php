@@ -1,7 +1,7 @@
 <?php
 abstract class Base{
 	private readonly \ReflectionObject $_meta;
-	final function HasAttribute(string $p,string $a):bool{
+	final function HasAttribute(string $p, string $a):bool{
 		return (bool)$this->_meta->getProperty($p)->getAttributes($a::class);
 	}
 	final function Map(array $data,array $map=[]){
