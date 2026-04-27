@@ -21,7 +21,7 @@ abstract class Base{
 	}
 	#[\Override]
 	protected function Initialise():void{}
-	final function __construct(array $d=[], ?array $t){
+	function __construct(array $d=[], ?array $t){
 		$this->_meta=new \ReflectionObject($this);
 		$this->initialize();
 		if($d)
