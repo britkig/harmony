@@ -23,6 +23,6 @@ abstract class Base{
 		$this->$_meta=\ReflectionObject($this);
 		$this->initialize();
 		if($data)
-			$this->Map($data,$map);
+			$this->Map($data, $map);
 	}
 }
