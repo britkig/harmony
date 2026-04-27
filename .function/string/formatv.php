@@ -1,3 +1,3 @@
 <?php namespace String;
-function FormatV(string $format, array $args):string{
-	return \vsprintf($format,$args);}
+function FormatV(string $f, array $a):string{
+	return \vsprintf($f, $a);}
