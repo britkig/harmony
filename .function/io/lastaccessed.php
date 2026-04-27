@@ -1,6 +1,6 @@
 <?php namespace IO;
-function LastAccessed(&$result,string$path):bool{
-	if(!Exists($path)) return false;
-	if(!($path=@\fileatime($path))) return false;
-	$result=$path;
+function LastAccessed(&$_, string $p):bool{
+	if(!Exists($p)) return false;
+	if(($p=@\fileatime($p))===false) return false;
+	$_=$p;
 	return true;}
