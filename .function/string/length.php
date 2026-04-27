@@ -1,3 +1,3 @@
 <?php namespace String;
-function Length(string $string):int{
-	return \strlen($string);}
+function Length(string $s):int{
+	return \strlen($s);}
