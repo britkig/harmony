@@ -16,5 +16,5 @@ function SecureInclude($_){
 	return @include_once ReturnUnset($_);}
 
 \spl_autoload_register(callback:function(string$_):void{
-	if(\file_exists($_=\implode(DirSeparator,[Root,\strtolower($_).'.php'])))
-		SecureInclude($_);
+	if(\is_file($_=\implode(DirSeparator,[Root,\strtolower($_).'.php'])))
+		SecureInclude($_);});
