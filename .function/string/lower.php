@@ -1,3 +1,3 @@
 <?php namespace String;
-function Lower(string$string):string{
-	return \strtolower($string);}
+function Lower(string $s):string{
+	return \strtolower($s);}
