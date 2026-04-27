@@ -3,7 +3,7 @@ abstract class Base{
 	static final function HasAttribute(\ReflectionObject $r, string $p, string $a):bool{
 		return (bool)$r->getProperty($p)->getAttributes($a::class);
 	}
-	final function MapV(array $m, array $d):void{
+	final function MapV(array $m, ?array $d):void{
 		if($d)
 			if($m){
 				foreach($d as $a=>$b){
@@ -21,9 +21,8 @@ abstract class Base{
 	}
 	#[\Override]
 	protected function Initialise():void{}
-	final function __construct(?array $d,?array $m=[]){
+	final function __construct(array $d=[], ?array $m){
 		$this->initialize();
-		if($data)
-			$this->MapV($d, $m);
+		$this->MapV($d, $m);
 	}
 }
