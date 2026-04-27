@@ -4,7 +4,7 @@ abstract class Base{
 	final function HasAttribute(string $p, string $a):bool{
 		return (bool)$this->_meta->getProperty($p)->getAttributes($a::class);
 	}
-	final function Map(array $d,array $m=[]){
+	final function Map(array $d, array $m=[]){
 		if($d)
 			if($m){
 				foreach($d as $a=>$b){
