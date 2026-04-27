@@ -1,3 +1,3 @@
 <?php namespace String;
-function Upper(string$string):string{
-	return \strtoupper($string);}
+function Upper(string $s):string{
+	return \strtoupper($s);}
