@@ -6,7 +6,7 @@ abstract class Base{
 	final function MapV(array $m, ?array $d):void{
 		if($m)
 			if($d){
-				foreach($m as $a=>$b){
+				foreach($d as $a=>$b){
 					
 				}
 			}else{
