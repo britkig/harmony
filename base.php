@@ -4,14 +4,14 @@ abstract class Base{
 	final function HasAttribute(string $p, string $a):bool{
 		return (bool)$this->_meta->getProperty($p)->getAttributes($a::class);
 	}
-	final function Map(array $data,array $map=[]){
-		if($data)
-			if($map){
-				foreach($data as $a=>$b){
+	final function Map(array $d,array $m=[]){
+		if($d)
+			if($m){
+				foreach($d as $a=>$b){
 					
 				}
 			}else{
-				foreach($data as $a=>$b)
+				foreach($d as $a=>$b)
 					if(\is_string($a))
 						if(\property_exists($this,$a))
 							$this->$a=$b;
@@ -19,10 +19,10 @@ abstract class Base{
 	}
 	#[\Override]
 	protected function Initialise():void{}
-	final function __construct(?array $data=[],?array $map=[]){
+	final function __construct(?array $d=[],?array $m=[]){
 		$this->$_meta=\ReflectionObject($this);
 		$this->initialize();
 		if($data)
-			$this->Map($data, $map);
+			$this->Map($d, $m);
 	}
 }
