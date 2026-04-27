@@ -1,7 +1,8 @@
 <?php
 abstract class Base{
-	static final function HasAttribute(\ReflectionObject $r, string $p, string $a):bool{
-		return (bool)$r->getProperty($p)->getAttributes($a::class);
+	private readonly \ReflectionObject $_meta;
+	protected final function HasAttribute(string $p, string $a):bool{
+		return (bool)$this->_meta->getProperty($p)->getAttributes($a::class);
 	}
 	final function MapV(array $d, ?array $t):void{
 		if($t){
@@ -21,6 +22,7 @@ abstract class Base{
 	#[\Override]
 	protected function Initialise():void{}
 	final function __construct(array $d=[], ?array $t){
+		$this->_meta=new \ReflectionObject($this);
 		$this->initialize();
 		if($d)
 			$this->MapV($d, $t);
