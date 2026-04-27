@@ -3,10 +3,12 @@
 const Root=__DIR__;
 const DirSeparator=\DIRECTORY_SEPARATOR;
 
-\set_error_handler(function(int$n,string$s,string$f,int$l){
-	if(!(\error_reporting()&$n))return;
-	if($n==\E_DEPRECATED||$n==\E_USER_DEPRECATED)return;
-	throw new \ErrorException($s,$n,$n,$f,$l);});
+\set_error_handler(function(int $n, string $s,string $f, int $l){
+	if(!(\error_reporting() & $n)) 
+		return;
+	if($n==\E_DEPRECATED || $n==\E_USER_DEPRECATED)
+		return;
+	throw new \ErrorException($s, $n, $n, $f, $l);});
 
 function ReturnUnset(&$_){
 	$a=$_;unset($_);
