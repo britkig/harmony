@@ -1,6 +1,6 @@
 <?php namespace IO;
-function LastModified(&$result,string$path):bool{
-	if(!Exists($path)) return false;
-	if(!($path=@\filemtime($path))) return false;
-	$result=$path;
+function LastModified(&$_ , string $p):bool{
+	if(!Exists($p)) return false;
+	if(($p=@\filemtime($p))===false) return false;
+	$_=$p;
 	return true;}
