@@ -16,8 +16,8 @@ abstract class Base{
 						$this->$a=$b;
 		}
 	}
-	final Function Map(array $m, ... $t):void{
-		MapV($m, $t);
+	final Function Map(array $d, ... $t):void{
+		MapV($d, $t);
 	}
 	#[\Override]
 	protected function Initialise():void{}
