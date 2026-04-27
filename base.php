@@ -22,7 +22,7 @@ abstract class Base{
 	}
 	#[\Override]
 	protected function Initialise():void{}
-	final function __construct(?array $d=[],?array $m=[]){
+	final function __construct(?array $d,?array $m=[]){
 		$this->$_meta=\ReflectionObject($this);
 		$this->initialize();
 		if($data)
