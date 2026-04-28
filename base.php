@@ -17,7 +17,6 @@ abstract class Base{
 				if(\is_string($a) && $a)
 					if(\property_exists($this,$a))
 						$this->$a=$b;
-			
 		}
 	}
 	final function Map(array $d, ... $m):void{
