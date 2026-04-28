@@ -5,7 +5,7 @@ abstract class Base{
 		if(!$this->_->hasProperty($p)) return false;
 		return !empty($this->_->getProperty($p)->getAttributes($a::class));
 	}
-	final function MapV(array $d, ?array $m):void{
+	final function MapV(array $d, ?array $m=null):void{
 		if($m){
 			foreach($m as $a=>$b)
 				if(\is_string($b) && $b)
