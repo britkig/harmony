@@ -1,8 +1,10 @@
 <?php
 abstract class Base{
-	private \ReflectionObject $_;
+	private readonly \ReflectionObject $_;
 	protected final function HasAttribute(string $p, string $a):bool{
-		return (bool)$this->_->getProperty($p)->getAttributes($a::class);
+		if(!$this->_->hasProperty($p))
+			return false;
+		return !empty($this->_->getProperty($p)->getAttributes($a::class));
 	}
 	final function MapV(array $d, ?array $m):void{
 		if($m){
@@ -10,7 +12,7 @@ abstract class Base{
 				if(\is_string($b) && $b)
 					if(\property_exists($this,$b))
 						if(\is_string($a) && $a)
-							if(\array_key_exists($d,$a))
+							if(\array_key_exists($a,$d))
 								$this->$b=$d[$a];
 		}else{
 			foreach($d as $a=>$b)
