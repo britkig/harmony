@@ -25,7 +25,7 @@ abstract class Base{
 	}
 	protected function initialize(){return;}
 	function __construct(?array $d=null, ?array $m=null){
-		$_=new \ReflectionObject($this);
+		$this->_=new \ReflectionObject($this);
 		$this->initialize();
 		if($d) $this->MapV($d,$m);
 	}
