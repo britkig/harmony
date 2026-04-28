@@ -2,8 +2,7 @@
 abstract class Base{
 	private readonly \ReflectionObject $_;
 	protected final function HasAttribute(string $p, string $a):bool{
-		if(!$this->_->hasProperty($p))
-			return false;
+		if(!$this->_->hasProperty($p)) return false;
 		return !empty($this->_->getProperty($p)->getAttributes($a::class));
 	}
 	final function MapV(array $d, ?array $m):void{
@@ -24,10 +23,9 @@ abstract class Base{
 	final function Map(array $d, ... $m):void{
 		MapV($d, $m);
 	}
-	[#\Override]
 	protected function initialize(){return;}
 	function __construct(?array $d=null, ?array $m=null){
-		$this->_=new \ReflectionObject($this);
+		$_=new \ReflectionObject($this);
 		$this->initialize();
 		if($d) $this->MapV($d,$m);
 	}
