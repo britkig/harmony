@@ -1,30 +1,33 @@
 <?php
 abstract class Base{
-	private readonly \ReflectionObject $_meta;
+	private \ReflectionObject $_;
 	protected final function HasAttribute(string $p, string $a):bool{
-		return (bool)$this->_meta->getProperty($p)->getAttributes($a::class);
+		return (bool)$this->_->getProperty($p)->getAttributes($a::class);
 	}
-	final function MapV(array $d, ?array $t):void{
-		if($t){
-			foreach($t as $a=>$b){
-				
-			}
+	final function MapV(array $d, ?array $m):void{
+		if($m){
+			foreach($m as $a=>$b)
+				if(\is_string($b) && $b)
+					if(\property_exists($this,$b))
+						if(\is_string($a) && $a)
+							if(\array_key_exists($d,$a))
+								$this->$b=$d[$a];
 		}else{
 			foreach($d as $a=>$b)
-				if(\is_string($a))
+				if(\is_string($a) && $a)
 					if(\property_exists($this,$a))
 						$this->$a=$b;
+			
 		}
 	}
-	final Function Map(array $d, ... $t):void{
-		MapV($d, $t);
+	final function Map(array $d, ... $m):void{
+		MapV($d, $m);
 	}
-	#[\Override]
-	protected function Initialise():void{}
-	function __construct(?array $d, ?array $t){
-		$this->_meta=new \ReflectionObject($this);
+	[#\Override]
+	protected function initialize(){return;}
+	function __construct(?array $d=null, ?array $m=null){
+		$this->_=new \ReflectionObject($this);
 		$this->initialize();
-		if($d)
-			$this->MapV($d, $t);
+		if($d) $this->MapV($d,$m);
 	}
 }
